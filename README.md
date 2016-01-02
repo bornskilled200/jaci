@@ -1,3 +1,6 @@
+# What is this fork for?
+I wanted Jaci to work on the libgdx GWT backend, so here is a very ugly fix. Later on I will fix it up so it is non-instrusive using emulation and put it up on maven.
+
 # What is Jaci?
 Java Annotation Command Interface.  
 Jaci generates User Interfaces (CLI/GUI) from annotated methods, which can then be embedded into your application.
@@ -53,13 +56,7 @@ See the [Wiki](https://github.com/ykrasik/jaci/wiki) for full documentation.
 # Binaries
 The binaries depend on your choice of UI-platform:
 * LibGdx CLI:
-```
-<dependency>
-    <groupId>com.github.ykrasik</groupId>
-    <artifactId>jaci-libgdx-cli</artifactId>
-    <version>0.2.0</version>
-</dependency>
-```
+Unavailable on maven for now
 
 # Change log
 See [Change Log](https://github.com/ykrasik/jaci/blob/master/CHANGELOG.md)
