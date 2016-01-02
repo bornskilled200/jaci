@@ -1,5 +1,6 @@
 # What is this fork for?
 I wanted Jaci to work on the libgdx GWT backend, so here is a very ugly fix. Later on I will fix it up so it is non-instrusive using emulation and put it up on maven.
+If you want it now, you would need to compile this library yourself as I have not looked into maven. However you must also wait for [this pull request](https://github.com/libgdx/libgdx/pull/3685) to be merged in to fix some issues on libgdx GWT backend.
 
 # What is Jaci?
 Java Annotation Command Interface.  
