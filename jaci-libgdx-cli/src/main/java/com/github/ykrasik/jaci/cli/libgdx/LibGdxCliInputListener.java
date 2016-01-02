@@ -21,7 +21,7 @@ import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.github.ykrasik.jaci.cli.Cli;
-import lombok.NonNull;
+
 
 /**
  * Links {@link InputEvent}s to {@link Cli} calls.
@@ -31,7 +31,7 @@ import lombok.NonNull;
 public class LibGdxCliInputListener extends InputListener {
     private final Cli cli;
 
-    public LibGdxCliInputListener(@NonNull Cli cli) {
+    public LibGdxCliInputListener( Cli cli) {
         this.cli = cli;
     }
 

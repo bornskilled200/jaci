@@ -18,7 +18,7 @@ package com.github.ykrasik.jaci.util.opt;
 
 import com.github.ykrasik.jaci.util.function.Func;
 import com.github.ykrasik.jaci.util.function.Pred;
-import lombok.NonNull;
+
 
 import java.util.*;
 
@@ -55,7 +55,7 @@ final class Absent<T> extends Opt<T> {
     }
 
     @Override
-    public Opt<T> orElse(@NonNull Opt<? extends T> alternative) {
+    public Opt<T> orElse( Opt<? extends T> alternative) {
         return (Opt<T>) alternative;
     }
 

@@ -19,7 +19,9 @@ package com.github.ykrasik.jaci.cli.command;
 import com.github.ykrasik.jaci.api.CommandOutput;
 import com.github.ykrasik.jaci.cli.directory.CliDirectory;
 import com.github.ykrasik.jaci.cli.output.CliPrinter;
-import lombok.NonNull;
+
+import java.util.Arrays;
+
 
 /**
  * A CLI implementation of a {@link CommandOutput}.
@@ -35,7 +37,7 @@ public class CliCommandOutput implements CommandOutput {
 
     private boolean printDefaultExecutionMessage = true;
 
-    public CliCommandOutput(@NonNull CliPrinter printer) {
+    public CliCommandOutput( CliPrinter printer) {
         this.printer = printer;
     }
 
@@ -47,7 +49,7 @@ public class CliCommandOutput implements CommandOutput {
 
     @Override
     public void message(String format, Object... args) {
-        message(String.format(format, args));
+        message(format + Arrays.toString(args));
     }
 
     @Override
@@ -58,7 +60,7 @@ public class CliCommandOutput implements CommandOutput {
 
     @Override
     public void error(String format, Object... args) {
-        error(String.format(format, args));
+        error(format + Arrays.toString(args));
     }
 
     /**

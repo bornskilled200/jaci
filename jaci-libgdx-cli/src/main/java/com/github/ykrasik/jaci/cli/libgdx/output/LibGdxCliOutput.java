@@ -19,7 +19,7 @@ package com.github.ykrasik.jaci.cli.libgdx.output;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.github.ykrasik.jaci.cli.output.CliOutput;
-import lombok.NonNull;
+
 
 /**
  * A LibGdx implementation of a {@link CliOutput}.
@@ -32,7 +32,7 @@ public class LibGdxCliOutput implements CliOutput {
     private final LibGdxCliOutputBuffer buffer;
     private final Label workingDirectory;
 
-    public LibGdxCliOutput(@NonNull LibGdxCliOutputBuffer buffer, @NonNull Label workingDirectory) {
+    public LibGdxCliOutput( LibGdxCliOutputBuffer buffer,  Label workingDirectory) {
         this.buffer = buffer;
         this.workingDirectory = workingDirectory;
     }

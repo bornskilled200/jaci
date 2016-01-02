@@ -37,7 +37,7 @@ import com.github.ykrasik.jaci.cli.output.DefaultCliSerializer;
 import com.github.ykrasik.jaci.hierarchy.CommandHierarchyDef;
 import com.github.ykrasik.jaci.cli.libgdx.output.LibGdxCliOutput;
 import com.github.ykrasik.jaci.cli.libgdx.output.LibGdxCliOutputBuffer;
-import lombok.NonNull;
+
 
 /**
  * A CLI implementation for LibGdx.<br>
@@ -87,8 +87,8 @@ public class LibGdxCli extends Table {
      * @param maxBufferEntries Maximum amount of line entries in the buffer to keep.
      * @param maxCommandHistory Maximum amount of command history entries to keep.
      */
-    private LibGdxCli(@NonNull Skin skin,
-                      @NonNull CliCommandHierarchy hierarchy,
+    private LibGdxCli( Skin skin,
+                       CliCommandHierarchy hierarchy,
                       int maxBufferEntries,
                       int maxCommandHistory) {
         super(skin);

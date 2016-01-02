@@ -22,7 +22,7 @@ import com.github.ykrasik.jaci.Identifier;
 import com.github.ykrasik.jaci.cli.assist.AutoComplete;
 import com.github.ykrasik.jaci.util.function.Spplr;
 import com.github.ykrasik.jaci.util.opt.Opt;
-import lombok.NonNull;
+
 
 /**
  * An abstract numeric {@link CliParam}.
@@ -36,7 +36,7 @@ public abstract class AbstractNumericCliParam<T extends Number> extends Abstract
     }
 
     @Override
-    public T parse(@NonNull String arg) throws ParseException {
+    public T parse( String arg) throws ParseException {
         try {
             return parseNumber(arg);
         } catch (NumberFormatException ignored) {
@@ -54,7 +54,7 @@ public abstract class AbstractNumericCliParam<T extends Number> extends Abstract
     protected abstract T parseNumber(String arg) throws NumberFormatException;
 
     @Override
-    public AutoComplete autoComplete(@NonNull String prefix) throws ParseException {
+    public AutoComplete autoComplete( String prefix) throws ParseException {
         throw new ParseException(ParseError.INVALID_PARAM_VALUE, "Cannot autoComplete %s parameter: '%s'!", getValueTypeName(), getIdentifier().getName());
     }
 }

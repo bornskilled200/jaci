@@ -22,7 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import lombok.NonNull;
+
 
 /**
  * An {@link EventHandler} that toggles between the currently active scene and a different scene
@@ -41,11 +41,11 @@ public class SceneToggler implements EventHandler<KeyEvent> {
     private Scene prevScene;
     private KeyCombination toggleCombination = DEFAULT_KEY_COMBINATION;
 
-    public SceneToggler(Stage stage, @NonNull Parent parent) {
+    public SceneToggler(Stage stage,  Parent parent) {
         this(stage, new Scene(parent));
     }
 
-    public SceneToggler(@NonNull Stage stage, @NonNull Scene scene) {
+    public SceneToggler( Stage stage,  Scene scene) {
         this.stage = stage;
         this.scene = scene;
     }
@@ -55,7 +55,7 @@ public class SceneToggler implements EventHandler<KeyEvent> {
      *
      * @param toggleCombination New keyCombination to set.
      */
-    public void setToggleCombination(@NonNull KeyCombination toggleCombination) {
+    public void setToggleCombination( KeyCombination toggleCombination) {
         this.toggleCombination = toggleCombination;
     }
 

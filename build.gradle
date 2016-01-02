@@ -36,8 +36,6 @@ subprojects {
     }
 
     dependencies {
-        provided "org.projectlombok:lombok:$lombokVersion"
-
         testCompile "junit:junit:$junitVersion"
         testCompile "org.mockito:mockito-all:$mockitoVersion"
     }
@@ -45,6 +43,14 @@ subprojects {
 
 project("jaci-utils") {
     description "Jaci utils"
+
+    dependencies {
+        provided "com.badlogicgames.gdx:gdx:$gdxVersion"
+    }
+    task sourcesJar(type: Jar, dependsOn: classes) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
+    }
 }
 
 project("jaci-core") {
@@ -52,6 +58,12 @@ project("jaci-core") {
 
     dependencies {
         compile project(":jaci-utils")
+        provided "com.badlogicgames.gdx:gdx:$gdxVersion"
+    }
+
+    task sourcesJar(type: Jar, dependsOn: classes) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
     }
 }
 
@@ -61,6 +73,11 @@ project("jaci-cli-core") {
     dependencies {
         compile project(":jaci-core")
     }
+
+    task sourcesJar(type: Jar, dependsOn: classes) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
+    }
 }
 
 project("jaci-javafx-cli") {
@@ -68,6 +85,11 @@ project("jaci-javafx-cli") {
 
     dependencies {
         compile project(":jaci-cli-core")
+    }
+
+    task sourcesJar(type: Jar, dependsOn: classes) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
     }
 }
 
@@ -80,5 +102,10 @@ project("jaci-libgdx-cli") {
         provided "com.badlogicgames.gdx:gdx:$gdxVersion"
         provided "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
         provided "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+    }
+
+    task sourcesJar(type: Jar, dependsOn: classes) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
     }
 }

@@ -18,7 +18,7 @@ package com.github.ykrasik.jaci.cli.javafx.commandline;
 
 import com.github.ykrasik.jaci.cli.commandline.CommandLineManager;
 import javafx.scene.control.TextField;
-import lombok.NonNull;
+
 
 /**
  * An implementation of a {@link CommandLineManager} for JavaFX.
@@ -29,7 +29,7 @@ import lombok.NonNull;
 public class JavaFxCommandLineManager implements CommandLineManager {
     private final TextField textField;
 
-    public JavaFxCommandLineManager(@NonNull TextField textField) {
+    public JavaFxCommandLineManager( TextField textField) {
         this.textField = textField;
     }
 

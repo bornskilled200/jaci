@@ -18,7 +18,6 @@ package com.github.ykrasik.jaci.cli;
 
 import com.github.ykrasik.jaci.cli.commandline.CommandLineManager;
 import com.github.ykrasik.jaci.util.opt.Opt;
-import lombok.NonNull;
 
 /**
  * A CLI is a component that can read from a command line via a {@link CommandLineManager},
@@ -31,7 +30,7 @@ public class Cli {
     private final CliShell shell;
     private final CommandLineManager commandLineManager;
 
-    public Cli(@NonNull CliShell shell, @NonNull CommandLineManager commandLineManager) {
+    public Cli(CliShell shell, CommandLineManager commandLineManager) {
         this.shell = shell;
         this.commandLineManager = commandLineManager;
     }

@@ -16,12 +16,13 @@
 
 package com.github.ykrasik.jaci.reflection.method.factory;
 
+import com.badlogic.gdx.utils.reflect.Method;
 import com.github.ykrasik.jaci.command.CommandDef;
 import com.github.ykrasik.jaci.util.opt.Opt;
-import lombok.NonNull;
+import com.badlogic.gdx.Gdx;
+
 
 import java.lang.annotation.Annotation;
-import java.lang.reflect.Method;
 
 /**
  * A {@link MethodCommandFactory} that can create {@link CommandDef}s out of {@link Method}s that are annotated with
@@ -35,13 +36,14 @@ public abstract class AbstractAnnotationMethodCommandFactory<T extends Annotatio
     /**
      * @param annotationClass Type of annotation supported by this factory.
      */
-    protected AbstractAnnotationMethodCommandFactory(@NonNull Class<T> annotationClass) {
+    protected AbstractAnnotationMethodCommandFactory( Class<T> annotationClass) {
         this.annotationClass = annotationClass;
     }
 
     @Override
-    public Opt<CommandDef> create(@NonNull Object instance, @NonNull Method method) throws Exception {
-        final T annotation = method.getAnnotation(annotationClass);
+    public Opt<CommandDef> create( Object instance,  Method method) throws Exception {
+        com.badlogic.gdx.utils.reflect.Annotation declaredAnnotation = method.getDeclaredAnnotation(annotationClass);
+        final T annotation = declaredAnnotation==null?null:declaredAnnotation.getAnnotation(annotationClass);
         if (annotation == null) {
             // Method isn't annotated.
             return Opt.absent();

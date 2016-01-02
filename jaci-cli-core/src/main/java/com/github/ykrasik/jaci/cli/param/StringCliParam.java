@@ -27,7 +27,7 @@ import com.github.ykrasik.jaci.util.function.MoreSuppliers;
 import com.github.ykrasik.jaci.util.opt.Opt;
 import com.github.ykrasik.jaci.util.trie.Trie;
 import com.github.ykrasik.jaci.util.trie.TrieBuilder;
-import lombok.NonNull;
+
 
 import java.util.List;
 
@@ -41,7 +41,7 @@ public class StringCliParam extends AbstractCliParam<String> {
 
     public StringCliParam(Identifier identifier,
                           Opt<Spplr<String>> defaultValueSupplier,
-                          @NonNull Spplr<List<String>> valuesSupplier) {
+                           Spplr<List<String>> valuesSupplier) {
         super(identifier, defaultValueSupplier);
 
         // If the supplier is a const supplier type (supplies a constant or cached value), the returned supplier
@@ -68,7 +68,7 @@ public class StringCliParam extends AbstractCliParam<String> {
     }
 
     @Override
-    public String parse(@NonNull String arg) throws ParseException {
+    public String parse( String arg) throws ParseException {
         final Trie<CliValueType> values = getValues();
 
         // If the values trie is empty, all values are accepted.
@@ -84,7 +84,7 @@ public class StringCliParam extends AbstractCliParam<String> {
     }
 
     @Override
-    public AutoComplete autoComplete(@NonNull String prefix) throws ParseException {
+    public AutoComplete autoComplete( String prefix) throws ParseException {
         // FIXME: Add proper support for auto completing quoted strings.
         final Trie<CliValueType> possibilities = getValues().subTrie(prefix);
         return new AutoComplete(prefix, possibilities);
@@ -100,7 +100,7 @@ public class StringCliParam extends AbstractCliParam<String> {
      * @param def StringParamDef to construct a CLI string parameter from.
      * @return A CLI string parameter constructed from the StringParamDef.
      */
-    public static StringCliParam fromDef(@NonNull StringParamDef def) {
+    public static StringCliParam fromDef( StringParamDef def) {
         return new StringCliParam(def.getIdentifier(), def.getDefaultValueSupplier(), def.getValuesSupplier());
     }
 }

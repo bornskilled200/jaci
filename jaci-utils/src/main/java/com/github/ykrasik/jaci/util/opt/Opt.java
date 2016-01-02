@@ -18,7 +18,7 @@ package com.github.ykrasik.jaci.util.opt;
 
 import com.github.ykrasik.jaci.util.function.Func;
 import com.github.ykrasik.jaci.util.function.Pred;
-import lombok.NonNull;
+
 
 import java.io.Serializable;
 import java.util.*;
@@ -50,7 +50,7 @@ public abstract class Opt<T> implements Iterable<T>, Serializable {
      * @return A non-empty {@code Opt} instance with the given value.
      * @throws NullPointerException If value is null.
      */
-    public static <T> Opt<T> of(@NonNull T value) {
+    public static <T> Opt<T> of( T value) {
         return new Present<>(value);
     }
 

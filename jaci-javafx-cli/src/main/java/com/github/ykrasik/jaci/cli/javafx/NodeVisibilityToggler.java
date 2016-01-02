@@ -21,7 +21,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
-import lombok.NonNull;
+
 
 /**
  * An {@link EventHandler} that toggles a node's visibility on or off when a key combination is pressed.
@@ -41,7 +41,7 @@ public class NodeVisibilityToggler implements EventHandler<KeyEvent> {
      *
      * @param node Node whose visibility should be toggled when the key combination is detected.
      */
-    public NodeVisibilityToggler(@NonNull Node node) {
+    public NodeVisibilityToggler( Node node) {
         this.node = node;
     }
 
@@ -50,7 +50,7 @@ public class NodeVisibilityToggler implements EventHandler<KeyEvent> {
      *
      * @param toggleCombination New keyCombination to set.
      */
-    public void setToggleCombination(@NonNull KeyCombination toggleCombination) {
+    public void setToggleCombination( KeyCombination toggleCombination) {
         this.toggleCombination = toggleCombination;
     }
 

@@ -19,7 +19,7 @@ package com.github.ykrasik.jaci.cli.javafx.output;
 import com.github.ykrasik.jaci.cli.output.CliOutput;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import lombok.NonNull;
+
 
 /**
  * A {@link CliOutput} implemented as as a JavaFx {@link TextArea}.
@@ -30,7 +30,7 @@ public class JavaFxCliOutput implements CliOutput {
     private final TextArea textArea;
     private final Label workingDirectory;
 
-    public JavaFxCliOutput(@NonNull TextArea textArea, @NonNull Label workingDirectory) {
+    public JavaFxCliOutput( TextArea textArea,  Label workingDirectory) {
         this.textArea = textArea;
         this.workingDirectory = workingDirectory;
     }

@@ -16,10 +16,10 @@
 
 package com.github.ykrasik.jaci.reflection.method.factory;
 
+import com.badlogic.gdx.utils.reflect.Method;
 import com.github.ykrasik.jaci.command.CommandDef;
 import com.github.ykrasik.jaci.util.opt.Opt;
 
-import java.lang.reflect.Method;
 
 /**
  * Creates {@link CommandDef}s out of {@link Method}s. Is not required to support all methods, may signal that a method

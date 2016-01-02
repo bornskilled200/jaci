@@ -21,7 +21,7 @@ import com.github.ykrasik.jaci.cli.exception.ParseError;
 import com.github.ykrasik.jaci.cli.exception.ParseException;
 import com.github.ykrasik.jaci.util.function.Spplr;
 import com.github.ykrasik.jaci.util.opt.Opt;
-import lombok.NonNull;
+
 
 /**
  * An abstract implementation of a {@link CliParam}.
@@ -43,7 +43,7 @@ public abstract class AbstractCliParam<T> implements CliParam {
      */
     private final Opt<Spplr<T>> defaultValueSupplier;
 
-    protected AbstractCliParam(@NonNull Identifier identifier, @NonNull Opt<Spplr<T>> defaultValueSupplier) {
+    protected AbstractCliParam( Identifier identifier,  Opt<Spplr<T>> defaultValueSupplier) {
         this.identifier = identifier;
         this.defaultValueSupplier = defaultValueSupplier;
     }

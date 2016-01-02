@@ -393,7 +393,7 @@ public class TrieNode<T> implements Trie<T> {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        if (Character.isAlphabetic(c)) {
+        if (Character.isLetter(c)) {
             sb.append(c);
             sb.append(" : ");
         }

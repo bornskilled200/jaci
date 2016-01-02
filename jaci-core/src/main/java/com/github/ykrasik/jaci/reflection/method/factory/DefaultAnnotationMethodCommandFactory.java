@@ -16,6 +16,7 @@
 
 package com.github.ykrasik.jaci.reflection.method.factory;
 
+import com.badlogic.gdx.utils.reflect.Method;
 import com.github.ykrasik.jaci.api.Command;
 import com.github.ykrasik.jaci.command.CommandDef;
 import com.github.ykrasik.jaci.command.CommandOutputPromise;
@@ -25,9 +26,8 @@ import com.github.ykrasik.jaci.reflection.param.ReflectionParamProcessor;
 import com.github.ykrasik.jaci.util.opt.Opt;
 import com.github.ykrasik.jaci.util.reflection.ReflectionParameter;
 import com.github.ykrasik.jaci.util.reflection.ReflectionUtils;
-import lombok.NonNull;
 
-import java.lang.reflect.Method;
+
 import java.util.List;
 
 import static com.github.ykrasik.jaci.util.string.StringUtils.getNonEmptyString;
@@ -53,8 +53,8 @@ public class DefaultAnnotationMethodCommandFactory extends AbstractAnnotationMet
     /**
      * Package-visible for testing.
      */
-    DefaultAnnotationMethodCommandFactory(@NonNull CommandOutputPromise outputPromise,
-                                          @NonNull ReflectionParamProcessor paramProcessor) {
+    DefaultAnnotationMethodCommandFactory( CommandOutputPromise outputPromise,
+                                           ReflectionParamProcessor paramProcessor) {
         super(Command.class);
         this.outputPromise = outputPromise;
         this.paramProcessor = paramProcessor;

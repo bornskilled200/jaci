@@ -32,7 +32,7 @@ import com.github.ykrasik.jaci.cli.output.CliSerializer;
 import com.github.ykrasik.jaci.cli.output.DefaultCliSerializer;
 import com.github.ykrasik.jaci.command.CommandArgs;
 import com.github.ykrasik.jaci.util.opt.Opt;
-import lombok.NonNull;
+
 
 import java.util.List;
 
@@ -62,9 +62,9 @@ public class CliShell {
     /**
      * Package-protected for testing.
      */
-    CliShell(@NonNull CliCommandHierarchy hierarchy,
-             @NonNull CliPrinter printer,
-             @NonNull CommandLineHistory history) {
+    CliShell(CliCommandHierarchy hierarchy,
+             CliPrinter printer,
+             CommandLineHistory history) {
         this.hierarchy = hierarchy;
         this.printer = printer;
         this.history = history;
@@ -205,7 +205,7 @@ public class CliShell {
         command.execute(commandOutput, args);
 
         if (commandOutput.isPrintDefaultExecutionMessage()) {
-            final String message = String.format("Command '%s' executed successfully.", command.getName());
+            final String message = ("Command '"+command.getName()+"' executed successfully.");
             printer.println(message);
         }
     }
@@ -216,7 +216,7 @@ public class CliShell {
             printer.printCommandInfo(commandInfo.get());
         }
 
-        final String errorMessage = String.format("Parse Error: %s", e.getMessage());
+        final String errorMessage = ("Parse Error: "+e.getMessage());
         printer.errorPrintln(errorMessage);
     }
 
@@ -229,7 +229,7 @@ public class CliShell {
         private CliSerializer serializer = new DefaultCliSerializer();
         private int maxCommandHistory = 30;
 
-        public Builder(@NonNull CliCommandHierarchy hierarchy, @NonNull CliOutput output) {
+        public Builder( CliCommandHierarchy hierarchy,  CliOutput output) {
             this.hierarchy = hierarchy;
             this.output = output;
         }

@@ -16,15 +16,16 @@
 
 package com.github.ykrasik.jaci.reflection.method;
 
+import com.badlogic.gdx.utils.reflect.Method;
 import com.github.ykrasik.jaci.command.CommandDef;
 import com.github.ykrasik.jaci.command.CommandOutputPromise;
 import com.github.ykrasik.jaci.reflection.method.factory.DefaultAnnotationMethodCommandFactory;
 import com.github.ykrasik.jaci.reflection.method.factory.MethodCommandFactory;
 import com.github.ykrasik.jaci.reflection.method.factory.ToggleAnnotationMethodCommandFactory;
 import com.github.ykrasik.jaci.util.opt.Opt;
-import lombok.NonNull;
+import com.badlogic.gdx.Gdx;
 
-import java.lang.reflect.Method;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -39,14 +40,14 @@ public class ReflectionMethodProcessor {
     /**
      * @param outputPromise An {@link CommandOutputPromise} that will be injected into the instance containing the methods.
      */
-    public ReflectionMethodProcessor(@NonNull CommandOutputPromise outputPromise) {
+    public ReflectionMethodProcessor( CommandOutputPromise outputPromise) {
         this(new DefaultAnnotationMethodCommandFactory(outputPromise), new ToggleAnnotationMethodCommandFactory());
     }
 
     /**
      * Package-protected for testing.
      */
-    ReflectionMethodProcessor(@NonNull MethodCommandFactory... factories) {
+    ReflectionMethodProcessor( MethodCommandFactory... factories) {
         this.factories = Arrays.asList(factories);
     }
 
@@ -57,11 +58,11 @@ public class ReflectionMethodProcessor {
      * @param method Method to be processed.
      * @return A {@code present} {@link CommandDef} if any of the factories managed to process the method.
      */
-    public Opt<CommandDef> process(@NonNull Object instance, @NonNull Method method) {
+    public Opt<CommandDef> process( Object instance,  Method method) {
         try {
             return doCreateCommand(instance, method);
         } catch (Exception e) {
-            final String message = String.format("Error creating command: class=%s, method=%s", method.getDeclaringClass(), method.getName());
+            final String message = ("Error creating command: class="+method.getDeclaringClass()+", method="+ method.getName());
             throw new IllegalArgumentException(message, e);
         }
     }

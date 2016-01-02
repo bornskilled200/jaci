@@ -16,7 +16,7 @@
 
 package com.github.ykrasik.jaci.cli.output;
 
-import lombok.NonNull;
+
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -56,7 +56,7 @@ public class Serialization implements Iterable<String> {
     /**
      * @param tab String to use as tab (1 unit of indentation).
      */
-    public Serialization(@NonNull String tab) {
+    public Serialization( String tab) {
         this.tab = tab;
     }
 

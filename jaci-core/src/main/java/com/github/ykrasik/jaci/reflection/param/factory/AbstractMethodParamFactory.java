@@ -19,7 +19,7 @@ package com.github.ykrasik.jaci.reflection.param.factory;
 import com.github.ykrasik.jaci.param.ParamDef;
 import com.github.ykrasik.jaci.util.opt.Opt;
 import com.github.ykrasik.jaci.util.reflection.ReflectionParameter;
-import lombok.NonNull;
+
 
 import java.util.Arrays;
 import java.util.List;
@@ -36,7 +36,7 @@ public abstract class AbstractMethodParamFactory<T extends ParamDef<?>> implemen
     /**
      * @param acceptedParameterTypes Types of parameter this factory can accept.
      */
-    protected AbstractMethodParamFactory(@NonNull Class<?>... acceptedParameterTypes) {
+    protected AbstractMethodParamFactory( Class<?>... acceptedParameterTypes) {
         if (acceptedParameterTypes.length == 0) {
             throw new IllegalArgumentException("AbstractMethodParamFactory must process at least 1 parameter type!");
         }

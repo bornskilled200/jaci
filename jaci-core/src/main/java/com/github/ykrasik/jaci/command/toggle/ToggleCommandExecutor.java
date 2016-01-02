@@ -20,7 +20,7 @@ import com.github.ykrasik.jaci.api.CommandOutput;
 import com.github.ykrasik.jaci.api.ToggleCommandStateAccessor;
 import com.github.ykrasik.jaci.command.CommandArgs;
 import com.github.ykrasik.jaci.command.CommandExecutor;
-import lombok.NonNull;
+
 
 /**
  * A {@link CommandExecutor} that sets the value of it's {@link ToggleCommandStateAccessor} according to input.
@@ -29,7 +29,7 @@ public class ToggleCommandExecutor implements CommandExecutor {
     private final String name;
     private final ToggleCommandStateAccessor accessor;
 
-    public ToggleCommandExecutor(@NonNull String name, @NonNull ToggleCommandStateAccessor accessor) {
+    public ToggleCommandExecutor( String name,  ToggleCommandStateAccessor accessor) {
         this.name = name;
         this.accessor = accessor;
     }
