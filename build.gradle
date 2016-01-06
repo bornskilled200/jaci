@@ -20,7 +20,7 @@ buildscript {
 
 apply plugin: 'io.codearte.nexus-staging'
 nexusStaging {
-    packageGroup = "com.github.ykrasik"
+    packageGroup = "com.unseenspace"
 }
 
 subprojects {
@@ -39,6 +39,20 @@ subprojects {
         testCompile "junit:junit:$junitVersion"
         testCompile "org.mockito:mockito-all:$mockitoVersion"
     }
+
+    task javadocJar(type: Jar) {
+        classifier = 'javadoc'
+        from javadoc
+    }
+
+    task sourcesJar(type: Jar) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
+    }
+
+    artifacts {
+        archives javadocJar, sourcesJar
+    }
 }
 
 project("jaci-utils") {
@@ -47,10 +61,7 @@ project("jaci-utils") {
     dependencies {
         provided "com.badlogicgames.gdx:gdx:$gdxVersion"
     }
-    task sourcesJar(type: Jar, dependsOn: classes) {
-        classifier = 'sources'
-        from sourceSets.main.allSource
-    }
+
 }
 
 project("jaci-core") {
@@ -60,11 +71,6 @@ project("jaci-core") {
         compile project(":jaci-utils")
         provided "com.badlogicgames.gdx:gdx:$gdxVersion"
     }
-
-    task sourcesJar(type: Jar, dependsOn: classes) {
-        classifier = 'sources'
-        from sourceSets.main.allSource
-    }
 }
 
 project("jaci-cli-core") {
@@ -73,11 +79,6 @@ project("jaci-cli-core") {
     dependencies {
         compile project(":jaci-core")
     }
-
-    task sourcesJar(type: Jar, dependsOn: classes) {
-        classifier = 'sources'
-        from sourceSets.main.allSource
-    }
 }
 
 project("jaci-javafx-cli") {
@@ -85,11 +86,6 @@ project("jaci-javafx-cli") {
 
     dependencies {
         compile project(":jaci-cli-core")
-    }
-
-    task sourcesJar(type: Jar, dependsOn: classes) {
-        classifier = 'sources'
-        from sourceSets.main.allSource
     }
 }
 
@@ -102,10 +98,5 @@ project("jaci-libgdx-cli") {
         provided "com.badlogicgames.gdx:gdx:$gdxVersion"
         provided "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
         provided "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
-    }
-
-    task sourcesJar(type: Jar, dependsOn: classes) {
-        classifier = 'sources'
-        from sourceSets.main.allSource
     }
 }

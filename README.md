@@ -57,7 +57,13 @@ See the [Wiki](https://github.com/ykrasik/jaci/wiki) for full documentation.
 # Binaries
 The binaries depend on your choice of UI-platform:
 * LibGdx CLI:
-Unavailable on maven for now
+```
+<dependency>
+    <groupId>com.unseenspace</groupId>
+    <artifactId>jaci-libgdx-cli</artifactId>
+    <version>0.2.1</version>
+</dependency>
+```
 
 # Change log
 See [Change Log](https://github.com/ykrasik/jaci/blob/master/CHANGELOG.md)
